@@ -70,13 +70,13 @@
     z-index: 1;
 }
 
-.map-section img {
+.heatmap-section img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.map-legend {
+.legenda {
     width: 100%;
     font-size: 0.95rem;
     color: #333;
@@ -85,14 +85,14 @@
     padding-left: 2.4rem;
 }
 
-.map-legend strong {
+.legenda strong {
     display: block;
     margin-bottom: 0.5rem;
     color: #000;
     font-weight: 700;
 }
 
-.map-legend div {
+.legenda div {
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -111,3 +111,74 @@
 .medium { background: #FFC163; }
 .high { background: #F5874F; }
 .extreme { background: #E65639; }
+
+.report-blok {
+    padding: 1.5rem 1.7rem 2rem;
+    background: #E65639;
+}
+
+.meld-blok h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.meld-blok p {
+    margin: 0 0 1rem;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.meld-blok .report-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #E65639;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.info-troep {
+    padding: 1.5rem 1.7rem 2rem;
+    background: #ECE9E9;
+}
+
+.troep-content {
+    margin: 0 0 1rem;
+    color: #555;
+    line-height: 1.6;
+    font-weight: 700;
+}
+
+.troep-content h2 {
+    margin: 0 0 0.5rem;
+    font-weight: 900;
+    color: #E65639;
+}
+
+.troep-content p {
+    margin: 0 0 1rem;
+    color: #000;
+    line-height: 1.6;
+}
+
+.troep-content .highlight {
+    color: #E65639;
+    font-weight: 700;
+}
+
+.info-banner {
+    margin-left: -1.7rem;
+    margin-right: -1.7rem;
+    width: calc(100% + 3.4rem);
+    overflow: hidden;
+}
+
+.info-banner img {
+    width: 100%;
+    display: block;
+    max-width: none;
+}
