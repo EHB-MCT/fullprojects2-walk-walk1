@@ -1,4 +1,9 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     padding: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -40,6 +45,8 @@
     padding: 0.5rem 1rem;
 }
 
+
+
 .hero-banner img {
     width: 100%;
     height: auto;
@@ -49,6 +56,7 @@
 .hero {
     position: relative;
     padding-top: 0;
+    margin-top: 5.25rem;
     min-height: 18rem;
     background-color: #ECE9E9;
 }
@@ -181,4 +189,12 @@
     width: 100%;
     display: block;
     max-width: none;
+}
+
+body.nl-index {
+    background-color: #ECE9E9;
+}
+
+body.fr-index {
+    background-color: #ECE9E9;
 }
