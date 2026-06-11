@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meld een obstakel — Walk Brussels</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <style>
+        .optional-label {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #767676;
+        }
+    </style>
+</head>
+<body class="nl-formulier">
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index-nl.html" class="logo">
+                <img src="../Assets/Logo/LOGO-NB.png" alt="Walk logo">
+            </a>
+            <div class="nav-actions">
+                <a href="formulier-nl.html" class="report-btn">Meld een obstakel</a>
+                <a href="../html-fr/formulier-fr.html" class="language-switch">FR</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN FORM -->
+    <main class="form-main">
+        <div class="form-inner">
+
+            <!-- STEP INDICATOR -->
+            <div class="form-steps" id="formSteps">
+                <div class="form-step-dot active" id="dot1">1</div>
+                <div class="form-step-line" id="line1"></div>
+                <div class="form-step-dot" id="dot2">2</div>
+                <div class="form-step-line" id="line2"></div>
+                <div class="form-step-dot" id="dot3">3</div>
+            </div>
+
+            <!-- FORM CARD -->
+            <div class="form-card" id="formCard">
+                <form id="walkForm" novalidate>
+
+                    <!-- STEP 1: PHOTO -->
+                    <section class="form-step-section active" id="step1">
+                        <h2>Voeg je foto toe</h2>
+
+                        <div class="photo-options">
+                            <button type="button" class="photo-opt-btn" id="btnCamera">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                    <circle cx="12" cy="13" r="4"/>
+                                </svg>
+                                Camera
+                            </button>
+                            <button type="button" class="photo-opt-btn" id="btnGallery">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="3"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                Galerij
+                            </button>
+                        </div>
+
+                        <input type="file" id="fileCamera" accept="image/*" capture="environment" hidden>
+                        <input type="file" id="fileGallery" accept="image/*" hidden>
+
+                        <div class="photo-preview-wrap">
+                            <img id="imgPreview" class="photo-preview-img" alt="Voorbeeld foto">
+                            <button type="button" class="photo-remove-btn" id="removeBtn">✕</button>
+                        </div>
+
+                        <p class="form-error" id="errPhoto">Voeg eerst een foto toe om verder te gaan.</p>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="nextStep1">Volgende stap →</button>
+                            <button type="button" class="btn-form-prev" id="backToHome">← Terug naar campagne</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 2: LOCATION -->
+                    <section class="form-step-section" id="step2">
+                        <h2>Voeg de locatie toe</h2>
+
+                        <button type="button" class="loc-gps-btn" id="btnGetLocation">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+                                <circle cx="12" cy="12" r="7" stroke-dasharray="3 2"/>
+                            </svg>
+                            Gebruik mijn locatie
+                        </button>
+
+                        <div class="form-divider">of</div>
+
+                        <label class="form-label" for="location">Voeg een adres toe</label>
+                        <input type="text" id="location" class="form-input" placeholder="bv. Nieuwstraat 10, Brussel" autocomplete="street-address">
+                        <small class="form-gps-status" id="gpsStatus"></small>
+
+                        <p class="form-error" id="errLocation">Voeg een locatie toe om verder te gaan.</p>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="nextStep2">Volgende stap →</button>
+                            <button type="button" class="btn-form-prev" id="backStep2">← Vorige stap</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 3: DESCRIPTION (optional) -->
+                    <section class="form-step-section" id="step3">
+                        <h2>Beschrijving <span class="optional-label">(optioneel)</span></h2>
+
+                        <label class="form-label" for="description">Extra informatie</label>
+                        <textarea id="description" class="form-textarea" placeholder="Beschrijf het obstakel..."></textarea>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="nextStep3">Bevestigen →</button>
+                            <button type="button" class="btn-form-skip" id="skipStep3">Overslaan</button>
+                            <button type="button" class="btn-form-prev" id="backStep3">← Vorige stap</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 4: REVIEW -->
+                    <section class="form-step-section" id="step4">
+                        <h2>Controleer je melding</h2>
+                        <dl class="summary-list" id="summaryList"></dl>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="submitBtn">Bevestigen →</button>
+                            <button type="button" class="btn-form-prev" id="backStep4">← Vorige stap</button>
+                        </div>
+                    </section>
+
+                </form>
+
+                <!-- SUCCESS SCREEN -->
+                <div class="form-success" id="successScreen">
+                    <div class="success-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E65639" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h2>Je formulier werd ontvangen,<br>Bedankt!</h2>
+                    <p>Je e-mailprogramma is geopend met de gegevens van je melding. Controleer en verstuur de mail.</p>
+                    <button class="btn-form-next" id="backFromSuccess">← Terug naar campagne</button>
+                </div>
+
+            </div>
+
+            <div class="form-footer">avec le soutien de &nbsp;·&nbsp; met de steun van</div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER BANNER AND SITE FOOTER -->
+    <section class="footer-banner-section">
+        <div class="footer-banner">
+            <img src="../Assets/Images/FooterBannerMobile.svg" alt="Footer Banner">
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="../Assets/Logo/LOGO-NB.png" alt="Walk logo">
+        </div>
+    </footer>
+
+    <script>
+        // ========================================
+        // STATE
+        // ========================================
+        let formState = {
+            photoDataURL: null,
+            photoName: null
+        };
+
+        // ========================================
+        // DOM HELPERS
+        // ========================================
+        function el(id) {
+            return document.getElementById(id);
+        }
+
+        function show(element) {
+            if (typeof element === 'string') element = el(element);
+            element.style.display = 'block';
+        }
+
+        function hide(element) {
+            if (typeof element === 'string') element = el(element);
+            element.style.display = 'none';
+        }
+
+        // ========================================
+        // STEP NAVIGATION
+        // ========================================
+        function updateStepIndicator(step) {
+            for (let i = 1; i <= 3; i++) {
+                const dot = el(`dot${i}`);
+                dot.classList.toggle('active', i === step);
+                dot.classList.toggle('done', i < step);
+            }
+            for (let i = 1; i <= 2; i++) {
+                el(`line${i}`).classList.toggle('done', i < step);
+            }
+        }
+
+        function goToStep(step) {
+            document.querySelectorAll('.form-step-section').forEach(s => s.classList.remove('active'));
+            el(`step${step}`).classList.add('active');
+            updateStepIndicator(step);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ========================================
+        // PHOTO HANDLING
+        // ========================================
+        function setupPhotoInput(inputId, buttonId) {
+            el(inputId).addEventListener('change', function() {
+                const file = this.files[0];
+                if (!file) return;
+
+                formState.photoName = file.name;
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    formState.photoDataURL = e.target.result;
+                    const img = el('imgPreview');
+                    img.src = formState.photoDataURL;
+                    show(img);
+                    show('removeBtn');
+                    el('btnCamera').classList.add('selected');
+                    el('btnGallery').classList.add('selected');
+                    hide('errPhoto');
+                };
+
+                reader.readAsDataURL(file);
+                this.value = '';
+            });
+
+            el(buttonId).addEventListener('click', () => {
+                el(inputId).click();
+            });
+        }
+
+        el('removeBtn').addEventListener('click', function() {
+            formState.photoDataURL = null;
+            formState.photoName = null;
+            const img = el('imgPreview');
+            img.src = '';
+            hide(img);
+            hide('removeBtn');
+            el('btnCamera').classList.remove('selected');
+            el('btnGallery').classList.remove('selected');
+        });
+
+        // ========================================
+        // VALIDATION
+        // ========================================
+        function validateStep1() {
+            if (!formState.photoDataURL) {
+                show('errPhoto');
+                return;
+            }
+            goToStep(2);
+        }
+
+        function validateStep2() {
+            const location = el('location').value.trim();
+            if (!location) {
+                show('errLocation');
+                return;
+            }
+            hide('errLocation');
+            goToStep(3);
+        }
+
+        // ========================================
+        // LOCATION
+        // ========================================
+        function getLocation() {
+            const status = el('gpsStatus');
+
+            if (!navigator.geolocation) {
+                status.textContent = 'Geolocatie niet beschikbaar in deze browser.';
+                return;
+            }
+
+            status.textContent = 'Locatie ophalen…';
+
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const lat = pos.coords.latitude.toFixed(5);
+                    const lng = pos.coords.longitude.toFixed(5);
+
+                    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)
+                        .then(r => r.json())
+                        .then(data => {
+                            el('location').value = data.display_name || `${lat}, ${lng}`;
+                            status.textContent = '✓ Locatie gevonden';
+                        })
+                        .catch(() => {
+                            el('location').value = `${lat}, ${lng}`;
+                            status.textContent = '✓ Coördinaten ingevuld';
+                        });
+                },
+                () => {
+                    status.textContent = 'Kon locatie niet ophalen — controleer je toestemmingen.';
+                }
+            );
+        }
+
+        // ========================================
+        // SUMMARY AND SUBMISSION
+        // ========================================
+        function showSummary() {
+            const location = el('location').value.trim();
+            const description = el('description').value.trim();
+            const dl = el('summaryList');
+
+            let html = '';
+            if (formState.photoDataURL) {
+                html += `<div class="summary-row"><dt class="summary-label">Foto</dt><dd class="summary-value"><img class="summary-thumb" src="${formState.photoDataURL}" alt="Foto"></dd></div>`;
+            }
+            html += `<div class="summary-row"><dt class="summary-label">Locatie</dt><dd class="summary-value">${location || '—'}</dd></div>`;
+            html += `<div class="summary-row"><dt class="summary-label">Beschrijving</dt><dd class="summary-value">${description || '<em style="color:#767676">Niet ingevuld</em>'}</dd></div>`;
+
+            dl.innerHTML = html;
+
+            ['dot1', 'dot2', 'dot3'].forEach(id => {
+                el(id).classList.remove('active');
+                el(id).classList.add('done');
+            });
+
+            ['line1', 'line2'].forEach(id => {
+                el(id).classList.add('done');
+            });
+
+            goToStep(4);
+        }
+
+        function skipDescription() {
+            el('description').value = '';
+            showSummary();
+        }
+
+        function submitForm() {
+            const location = el('location').value.trim();
+            const description = el('description').value.trim();
+
+            const subject = encodeURIComponent('Walk Brussels – Nieuwe melding obstakel');
+            const body = encodeURIComponent(
+                `Nieuwe melding via Walk Brussels\n\n` +
+                `📍 Locatie: ${location}\n\n` +
+                `📝 Beschrijving: ${description || 'Geen beschrijving opgegeven'}\n\n` +
+                `📎 Foto: ${formState.photoName ? `${formState.photoName} (voeg toe als bijlage)` : 'Geen foto'}\n\n` +
+                `---\nVerzonden via het Walk Brussels meldingsformulier`
+            );
+
+            window.location.href = `mailto:meldingen@walkbrussels.be?subject=${subject}&body=${body}`;
+
+            setTimeout(() => {
+                hide('walkForm');
+                hide('formSteps');
+                show('successScreen');
+            }, 600);
+        }
+
+        // ========================================
+        // EVENT LISTENERS
+        // ========================================
+        setupPhotoInput('fileCamera', 'btnCamera');
+        setupPhotoInput('fileGallery', 'btnGallery');
+
+        el('nextStep1').addEventListener('click', validateStep1);
+        el('backToHome').addEventListener('click', () => window.location.href = 'index-nl.html');
+
+        el('btnGetLocation').addEventListener('click', getLocation);
+        el('nextStep2').addEventListener('click', validateStep2);
+        el('backStep2').addEventListener('click', () => goToStep(1));
+
+        el('nextStep3').addEventListener('click', showSummary);
+        el('skipStep3').addEventListener('click', skipDescription);
+        el('backStep3').addEventListener('click', () => goToStep(2));
+
+        el('submitBtn').addEventListener('click', submitForm);
+        el('backStep4').addEventListener('click', () => goToStep(3));
+
+        el('backFromSuccess').addEventListener('click', () => window.location.href = 'index-nl.html');
+    </script>
+
+</body>
+</html>

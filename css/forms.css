@@ -1,3 +1,399 @@
-/* forms.css
-   Form-specific styles can be added here when needed.
-*/
+.form-main {
+    padding-top: 5.5rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+ 
+.form-inner {
+    width: 100%;
+    max-width: 480px;
+    padding: 0 1.2rem;
+}
+ 
+.form-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0 1.25rem;
+    gap: 0;
+}
+ 
+.form-step-dot {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background-color: #C8C4BE;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1;
+}
+ 
+.form-step-dot.active,
+.form-step-dot.done {
+    background-color: #E65639;
+}
+ 
+.form-step-line {
+    flex: 1;
+    height: 3px;
+    background-color: #C8C4BE;
+    transition: background-color 0.3s;
+    max-width: 4rem;
+}
+ 
+.form-step-line.done {
+    background-color: #E65639;
+}
+ 
+.form-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.75rem 1.25rem;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+ 
+.form-card h2 {
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #1A1A1A;
+    margin: 0 0 1.25rem;
+    line-height: 1.3;
+}
+ 
+.form-step-section {
+    display: none;
+}
+ 
+.form-step-section.active {
+    display: block;
+}
+ 
+.photo-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+ 
+.photo-opt-btn {
+    border: 2px dashed #D8D5D0;
+    border-radius: 10px;
+    background: #ECE9E9;
+    padding: 1.4rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #1A1A1A;
+    transition: border-color 0.2s, background 0.2s;
+}
+ 
+.photo-opt-btn:hover,
+.photo-opt-btn.selected {
+    border-color: #E65639;
+    background: #fdeee9;
+}
+ 
+.photo-opt-btn svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+ 
+#fileCamera,
+#fileGallery,
+#fileCameraFr,
+#fileGalleryFr {
+    display: none;
+}
+ 
+.photo-preview-wrap {
+    position: relative;
+    margin-bottom: 0.25rem;
+}
+ 
+.photo-preview-img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: none;
+}
+ 
+.photo-remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    font-size: 14px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+ 
+/* ── Locatie ── */
+.loc-gps-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem;
+    background: #E65639;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 0.9rem;
+    transition: background 0.2s;
+}
+ 
+.loc-gps-btn:hover {
+    background: #c43e18;
+}
+ 
+.loc-gps-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #ffffff;
+    fill: none;
+    flex-shrink: 0;
+}
+ 
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+    color: #767676;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+ 
+.form-divider::before,
+.form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #D8D5D0;
+}
+ 
+.form-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #767676;
+    margin-bottom: 0.4rem;
+}
+ 
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid #D8D5D0;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #1A1A1A;
+    background: #ECE9E9;
+    outline: none;
+    transition: border-color 0.2s;
+}
+ 
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #E65639;
+    background: #ffffff;
+}
+ 
+.form-textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+ 
+.form-gps-status {
+    display: block;
+    font-size: 0.75rem;
+    color: #767676;
+    margin-top: 0.4rem;
+    min-height: 1rem;
+}
+ 
+.form-error {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #B91C1C;
+    margin-top: 0.4rem;
+    display: none;
+}
+ 
+.form-nav {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+ 
+.btn-form-next {
+    width: 100%;
+    padding: 0.9rem;
+    background: #E65639;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+}
+ 
+.btn-form-next:hover {
+    background: #c43e18;
+}
+ 
+.btn-form-prev {
+    width: 100%;
+    padding: 0.7rem;
+    background: transparent;
+    color: #767676;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-align: center;
+    transition: color 0.2s;
+}
+ 
+.btn-form-prev:hover {
+    color: #1A1A1A;
+}
+ 
+.btn-form-skip {
+    background: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #767676;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+    padding: 0.25rem;
+}
+ 
+.summary-list {
+    border: 1.5px solid #D8D5D0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+ 
+.summary-row {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #D8D5D0;
+    align-items: flex-start;
+}
+ 
+.summary-row:last-child {
+    border-bottom: none;
+}
+ 
+.summary-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #767676;
+    width: 5.5rem;
+    flex-shrink: 0;
+    padding-top: 1px;
+}
+ 
+.summary-value {
+    font-size: 0.85rem;
+    color: #1A1A1A;
+    word-break: break-word;
+    line-height: 1.5;
+}
+ 
+.summary-thumb {
+    width: 68px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+ 
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+ 
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: #fdeee9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.1rem;
+}
+ 
+.form-success h2 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #1A1A1A;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+ 
+.form-success p {
+    font-size: 0.85rem;
+    color: #767676;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+ 
+.form-footer {
+    text-align: center;
+    padding: 1.25rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #767676;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
