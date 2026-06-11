@@ -121,7 +121,7 @@
 .extreme { background: #E65639; }
 
 .report-blok {
-    padding: 1.5rem 1.7rem 2rem;
+    padding: 0.75rem 1.7rem 2rem;
     background: #E65639;
 }
 
@@ -152,6 +152,7 @@
 .info-troep {
     padding: 1.5rem 1.7rem 2rem;
     background: #ECE9E9;
+    margin-bottom: 0;
 }
 
 .troep-content {
@@ -197,4 +198,80 @@ body.nl-index {
 
 body.fr-index {
     background-color: #ECE9E9;
+}
+
+body.fr-index .header,
+body.fr-index .hero,
+body.fr-index .legenda,
+body.fr-index .report-blok,
+body.fr-index .info-troep,
+body.fr-index .info-banner,
+body.fr-index .meld-blok,
+body.fr-index .troep-content {
+    background: transparent !important;
+}
+
+/* Stappen section styling */
+.stappen-section {
+    padding: 0.75rem 1.7rem 2rem;
+    background: #E65639;
+    margin-top: 0;
+}
+
+.stappen-section h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 900;
+    text-align: center;
+}
+
+.stappen-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    flex: 1;
+}
+
+.stap:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    z-index: 0;
+}
+
+.stap-cirkel {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #E65639;
+    font-size: 1.5rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.stap p {
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    font-size: 0.95rem;
 }
