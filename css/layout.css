@@ -200,18 +200,6 @@ body.fr-index {
     background-color: #ECE9E9;
 }
 
-body.fr-index .header,
-body.fr-index .hero,
-body.fr-index .legenda,
-body.fr-index .report-blok,
-body.fr-index .info-troep,
-body.fr-index .info-banner,
-body.fr-index .meld-blok,
-body.fr-index .troep-content {
-    background: transparent !important;
-}
-
-/* Stappen section styling */
 .stappen-section {
     padding: 0.75rem 1.7rem 2rem;
     background: #E65639;
@@ -274,4 +262,80 @@ body.fr-index .troep-content {
     margin: 0;
     text-align: center;
     font-size: 0.95rem;
+}
+
+.stickers-section {
+    padding: 1.5rem 1.7rem 2rem;
+    background: #ECE9E9;
+}
+
+.stickers-content {
+    margin-bottom: 1.5rem;
+}
+
+.stickers-content h2 {
+    margin: 0 0 0.5rem;
+    font-weight: 900;
+    color: #E65639;
+    font-size: 1.25rem;
+}
+
+.stickers-content p {
+    margin: 0 0 1rem;
+    color: #000;
+    line-height: 1.6;
+    font-weight: 700;
+}
+
+.stickers-request {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #E65639;
+}
+
+.stickers-gallery {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: space-around;
+}
+
+.sticker-item {
+    flex: 1;
+    max-width: 45%;
+}
+
+.sticker-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.stickers-banner {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.stickers-banner img {
+    width: 100%;
+    display: block;
+    max-width: none;
+}
+
+.footer-banner {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.footer-banner img {
+    width: 100%;
+    display: block;
+    max-width: none;
 }
