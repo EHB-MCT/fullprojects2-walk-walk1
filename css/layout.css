@@ -1,3 +1,7 @@
+/* layout.css
+   Main layout and page section styling.
+*/
+
 .header {
     position: fixed;
     top: 0;
@@ -22,20 +26,13 @@
     gap: 0.5rem;
 }
 
-.logo img {
+.logo img,
+.site-footer .footer-logo img {
     height: 30px;
     width: auto;
 }
 
-.report-btn {
-    background-color: #E65639;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
+.report-btn,
 .language-switch {
     background-color: #E65639;
     color: white;
@@ -45,12 +42,20 @@
     padding: 0.5rem 1rem;
 }
 
+.report-btn {
+    display: inline-block;
+}
 
-
-.hero-banner img {
+.hero-banner img,
+.heatmap-section img,
+.info-banner img,
+.sticker-item img,
+.stickers-banner img,
+.footer-banner img {
     width: 100%;
     height: auto;
     display: block;
+    max-width: none;
 }
 
 .hero {
@@ -76,12 +81,6 @@
     width: 100%;
     margin-top: 0;
     z-index: 1;
-}
-
-.heatmap-section img {
-    width: 100%;
-    height: auto;
-    display: block;
 }
 
 .legenda {
@@ -186,16 +185,7 @@
     overflow: hidden;
 }
 
-.info-banner img {
-    width: 100%;
-    display: block;
-    max-width: none;
-}
-
-body.nl-index {
-    background-color: #ECE9E9;
-}
-
+body.nl-index,
 body.fr-index {
     background-color: #ECE9E9;
 }
@@ -314,19 +304,7 @@ body.fr-index {
     border-radius: 8px;
 }
 
-.stickers-banner {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-    overflow: hidden;
-}
-
-.stickers-banner img {
-    width: 100%;
-    display: block;
-    max-width: none;
-}
-
+.stickers-banner,
 .footer-banner {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
@@ -334,8 +312,15 @@ body.fr-index {
     overflow: hidden;
 }
 
-.footer-banner img {
-    width: 100%;
-    display: block;
-    max-width: none;
+.site-footer {
+    background-color: #D9D9D9;
+    padding: 1rem 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-footer .footer-logo img {
+    height: 30px;
+    width: auto;
 }
