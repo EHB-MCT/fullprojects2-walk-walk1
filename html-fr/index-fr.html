@@ -3,108 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ras-le-bol du brol</title>
-    <link rel="stylesheet" href="../css/layout.css">
+    <title>Signalez un obstacle — Walk Brussels</title>
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/forms.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/typo.css">
+    <style>
+        .optional-label {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #767676;
+        }
+    </style>
 </head>
-<body class="fr-index">
+<body class="fr-formulier">
+
+    <!-- HEADER -->
     <header class="header">
         <nav class="navbar">
             <a href="index-fr.html" class="logo">
-                <img src="../Assets/Logo/LOGO-NB.png" alt="Logo">
+                <img src="../Assets/Logo/LOGO-NB.png" alt="Walk logo">
             </a>
             <div class="nav-actions">
-                <a href="formulier-fr.html" class="report-btn">Signalez du brol</a>
-                <a href="../html-nl/index-nl.html" class="language-switch">NL</a>
+                <a href="formulier-fr.html" class="report-btn">Signalez un obstacle</a>
+                <a href="../html-nl/formulier-nl.html" class="language-switch">NL</a>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-title">
-                <h1>ras-le bol<br>du brol</h1>
-                <h2>sur les<br>trottoirs<span class="dot">.</span></h2>
-            </div>
-            <div class="hero-banner">
-                <img src="../Assets/Images/HeadBannerMobile.svg" alt="Banner">
-            </div>
-        </section>
+    <!-- MAIN FORM -->
+    <main class="form-main">
+        <div class="form-inner">
 
-        <section class="heatmap-section">
-            <img src="../Assets/Images/HeatMapbrussels.png" alt="Heatmap Brussel">
-            <div class="legenda">
-                <strong>Légende</strong>
-                <div><span class="swatch low"></span>Peu d'obstacles</div>
-                <div><span class="swatch medium"></span>Nombre modéré d'obstacles</div>
-                <div><span class="swatch high"></span>Beaucoup d'obstacles</div>
-                <div><span class="swatch extreme"></span>Très nombreux obstacles</div>
+            <!-- STEP INDICATOR -->
+            <div class="form-steps" id="formSteps">
+                <div class="form-step-dot active" id="dot1">1</div>
+                <div class="form-step-line" id="line1"></div>
+                <div class="form-step-dot" id="dot2">2</div>
+                <div class="form-step-line" id="line2"></div>
+                <div class="form-step-dot" id="dot3">3</div>
             </div>
-        </section>
 
-        <section class="report-blok">
-            <div class="meld-blok">
-                <h2>Y a-t-il un obstacle<br>sur les trottoirs?</h2>
-                <p>N’hésitez pas à nous en faire part,<br>votre signalement est important</p>
-                <a href="formulier-fr.html" class="report-btn">Signalez du brol</a>
-            </div>
-        </section>
+            <!-- FORM CARD -->
+            <div class="form-card" id="formCard">
+                <form id="walkForm" novalidate>
 
-        <section class="info-troep">
-            <div class="troep-content">
-                <h2>Les déchets sont tout ce qui gêne les piétons.</h2>
-                <p>On entend par débris tout objet qui entrave la libre circulation sur le trottoir. Un trottoir sert avant tout à permettre de marcher en toute sécurité et confortablement. C'est pourquoi nous disons: <span class="highlight">ras-le bol du brol!</span></p>
-            </div>
-            <div class="info-banner">
-                <img src="../Assets/Images/ProbleemIllustratieMobile.svg" alt="Wat is troep">
-            </div>
-        </section>
+                    <!-- STEP 1: PHOTO -->
+                    <section class="form-step-section active" id="step1">
+                        <h2>Ajoutez votre photo</h2>
 
-        <section class="stappen-section">
-            <h2>Signaler en 3 étapes!</h2>
-            <div class="stappen-container">
-                <div class="stap">
-                    <div class="stap-cirkel">1</div>
-                    <p>Photo</p>
-                </div>
-                <div class="stap">
-                    <div class="stap-cirkel">2</div>
-                    <p>Localisation</p>
-                </div>
-                <div class="stap">
-                    <div class="stap-cirkel">3</div>
-                    <p>Description</p>
-                </div>
-            </div>
-        </section>
+                        <div class="photo-options">
+                            <button type="button" class="photo-opt-btn" id="btnCamera">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                    <circle cx="12" cy="13" r="4"/>
+                                </svg>
+                                Appareil photo
+                            </button>
+                            <button type="button" class="photo-opt-btn" id="btnGallery">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="3"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                Galerie
+                            </button>
+                        </div>
 
-        <section class="stickers-section">
-            <div class="stickers-content">
-                <h2>Un message qui reste collé dans les esprits!</h2>
-                <p>Grâce à leurs textes humoristiques, nos autocollants mettent en lumière ce qui passe souvent inaperçu : les obstacles n'ont pas leur place sur le trottoir.</p>
-                <p class="stickers-request">Intéressé par les autocollants? Demandez-les par email!</p>
-            </div>
-            <div class="stickers-gallery">
-                <div class="sticker-item">
-                    <img src="../Assets/Images/fr sticker 1.png" alt="Autocollant 1">
+                        <input type="file" id="fileCamera" accept="image/*" capture="environment" hidden>
+                        <input type="file" id="fileGallery" accept="image/*" hidden>
+
+                        <div class="photo-preview-wrap">
+                            <img id="imgPreview" class="photo-preview-img" alt="Aperçu de la photo">
+                            <button type="button" class="photo-remove-btn" id="removeBtn">✕</button>
+                        </div>
+
+                        <p class="form-error" id="errPhoto">Veuillez d'abord ajouter une photo pour continuer.</p>
+
+                        <label class="obstacle-section-label">Quel obstacle signalez-vous ?</label>
+                        <div class="obstacle-grid" id="obstacleGrid">
+                            <button type="button" class="obstacle-btn" data-label="Potelet">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9.5 9a2.5 2.5 0 0 1 5 0v10.5a1.5 1.5 0 0 1-1.5 1.5h-2a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <line x1="9.5" y1="12" x2="14.5" y2="12"/>
+                                    <line x1="9.5" y1="15" x2="14.5" y2="15"/>
+                                    <line x1="6" y1="21" x2="18" y2="21"/>
+                                </svg>
+                                <span>Potelet</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Panneau de signalisation">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="4.5" y="4" width="15" height="9.5" rx="1.8"/>
+                                    <circle cx="7" cy="6.5" r="0.4" fill="currentColor"/>
+                                    <circle cx="17" cy="6.5" r="0.4" fill="currentColor"/>
+                                    <line x1="9" y1="13.5" x2="9" y2="21"/>
+                                    <line x1="15" y1="13.5" x2="15" y2="21"/>
+                                </svg>
+                                <span>Panneau de signalisation</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Armoire électrique">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="6" y="2.5" width="12" height="19" rx="1.2"/>
+                                    <circle cx="8.3" cy="12" r="0.5" fill="currentColor"/>
+                                    <path d="M14.3 8.6l-2.4 4h2.2l-2.2 4" stroke-width="1.5"/>
+                                </svg>
+                                <span>Armoire électrique</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Mobilier de terrasse">
+                                <svg viewBox="0 0 24 24">
+                                    <ellipse cx="8" cy="7.5" rx="3.7" ry="1.4"/>
+                                    <line x1="8" y1="8.9" x2="8" y2="17.5"/>
+                                    <line x1="5" y1="17.5" x2="11" y2="17.5"/>
+                                    <line x1="16.5" y1="6.3" x2="16.5" y2="13"/>
+                                    <line x1="14" y1="9.3" x2="19" y2="9.3"/>
+                                    <line x1="14" y1="13" x2="19" y2="13"/>
+                                    <line x1="14.7" y1="13" x2="14" y2="19.5"/>
+                                    <line x1="18.3" y1="13" x2="19" y2="19.5"/>
+                                </svg>
+                                <span>Mobilier de terrasse</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Voiture garée">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/>
+                                    <rect x="3" y="11" width="18" height="5.2" rx="2"/>
+                                    <line x1="3" y1="14" x2="21" y2="14"/>
+                                    <circle cx="7.5" cy="18.6" r="1.6"/>
+                                    <circle cx="16.5" cy="18.6" r="1.6"/>
+                                </svg>
+                                <span>Voiture garée</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Moto / scooter">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="5.5" cy="17.5" r="2.7"/>
+                                    <circle cx="18" cy="17.5" r="2.7"/>
+                                    <path d="M5.5 17.5h6l1.8-5h3.6"/>
+                                    <path d="M11 12.5l-2-3h-3"/>
+                                    <path d="M14.5 12.5h2.3l1.2 2"/>
+                                </svg>
+                                <span>Moto / scooter</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Trottinette partagée">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="5.5" cy="19" r="1.8"/>
+                                    <circle cx="16.5" cy="19" r="1.8"/>
+                                    <path d="M5.5 19h9.5l2-9h2"/>
+                                    <path d="M15 10l1.8-4"/>
+                                    <path d="M9.2 4.2l-1.6 3h1.9l-1.6 3" stroke-width="1.5"/>
+                                </svg>
+                                <span>Trottinette partagée</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Panneau publicitaire">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="6.5" y="5" width="11" height="12" rx="0.8"/>
+                                    <path d="M8.6 5L7 2.2"/>
+                                    <path d="M15.4 5L17 2.2"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                    <line x1="9" y1="21" x2="15" y2="21"/>
+                                </svg>
+                                <span>Panneau publicitaire</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Barrière Nadar">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3.5" y="9" width="17" height="5" rx="0.8"/>
+                                    <line x1="6.5" y1="9" x2="6.5" y2="14"/>
+                                    <line x1="9.5" y1="9" x2="9.5" y2="14"/>
+                                    <line x1="12.5" y1="9" x2="12.5" y2="14"/>
+                                    <line x1="15.5" y1="9" x2="15.5" y2="14"/>
+                                    <line x1="18.5" y1="9" x2="18.5" y2="14"/>
+                                    <path d="M5.5 14l-2 6.5"/>
+                                    <path d="M5.5 14l2.4 6.5"/>
+                                    <path d="M18.5 14l-2.4 6.5"/>
+                                    <path d="M18.5 14l2 6.5"/>
+                                </svg>
+                                <span>Barrière Nadar</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Poubelle">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9.5 5a2.5 2.5 0 0 1 5 0"/>
+                                    <path d="M5.5 9h13l-1.2 11.2a1.8 1.8 0 0 1-1.8 1.6h-7a1.8 1.8 0 0 1-1.8-1.6z"/>
+                                    <line x1="4" y1="9" x2="20" y2="9"/>
+                                </svg>
+                                <span>Poubelle</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Sac à ordures">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9.8 6.2l1-2.7"/>
+                                    <path d="M14.2 6.2l-1-2.7"/>
+                                    <circle cx="12" cy="5.5" r="0.85" fill="currentColor"/>
+                                    <path d="M6.8 8.6c0-1.4 1-2.3 2.3-2.3h5.8c1.3 0 2.3.9 2.3 2.3l1 10.2a2.3 2.3 0 0 1-2.3 2.5H8.1a2.3 2.3 0 0 1-2.3-2.5z"/>
+                                </svg>
+                                <span>Sac à ordures</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Borne de recharge">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="5.5" y="3.5" width="9" height="17" rx="1.8"/>
+                                    <line x1="5.5" y1="8.5" x2="14.5" y2="8.5"/>
+                                    <path d="M9 11.5l-1.6 3.4h2.4l-1.6 3.4" stroke-width="1.5"/>
+                                    <path d="M14.5 8c2.2 0 3.3 1 3.3 3.2v4.6a1.2 1.2 0 0 0 2.4 0v-6.3"/>
+                                </svg>
+                                <span>Borne de recharge</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Lampadaire">
+                                <svg viewBox="0 0 24 24">
+                                    <line x1="12" y1="22" x2="12" y2="7"/>
+                                    <path d="M12 7c0-1.6 1.3-2.8 2.9-2.8h1.8"/>
+                                    <path d="M12 7c0-1.6-1.3-2.8-2.9-2.8H7.3"/>
+                                    <circle cx="17.4" cy="4.2" r="1.6"/>
+                                    <circle cx="6.6" cy="4.2" r="1.6"/>
+                                </svg>
+                                <span>Lampadaire</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Zone de stationnement trottinettes">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="5.5" width="18" height="15" rx="1.3" stroke-dasharray="2.4 2.2"/>
+                                    <circle cx="8" cy="16.5" r="1.5"/>
+                                    <circle cx="15.5" cy="16.5" r="1.5"/>
+                                    <path d="M8 16.5h6.3l1.3-6h1.7"/>
+                                    <path d="M12.4 7.5l-1.4 2.5h1.6l-1.4 2.5" stroke-width="1.5"/>
+                                </svg>
+                                <span>Zone de stationnement trottinettes</span>
+                            </button>
+                            <button type="button" class="obstacle-btn" data-label="Autre">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-dasharray="2.4 2.4"/>
+                                    <line x1="12" y1="8" x2="12" y2="16"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <span>Autre</span>
+                            </button>
+                        </div>
+                        <p class="form-error" id="errObstacle">Sélectionnez le type d'obstacle pour continuer.</p>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="nextStep1">Étape suivante →</button>
+                            <button type="button" class="btn-form-prev" id="backToHome">← Retour à la campagne</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 2: LOCATION -->
+                    <section class="form-step-section" id="step2">
+                        <h2>Ajoutez la localisation</h2>
+
+                        <button type="button" class="loc-gps-btn" id="btnGetLocation">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+                                <circle cx="12" cy="12" r="7" stroke-dasharray="3 2"/>
+                            </svg>
+                            Utiliser ma position
+                        </button>
+
+                        <div class="form-divider">ou</div>
+
+                        <label class="form-label" for="location">Ajoutez une adresse</label>
+                        <input type="text" id="location" class="form-input" placeholder="ex. Rue Neuve 10, Bruxelles" autocomplete="street-address">
+                        <small class="form-gps-status" id="gpsStatus"></small>
+
+                        <p class="form-error" id="errLocation">Veuillez ajouter une localisation pour continuer.</p>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="nextStep2">Étape suivante →</button>
+                            <button type="button" class="btn-form-prev" id="backStep2">← Étape précédente</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 3: DESCRIPTION (optional) -->
+                    <section class="form-step-section" id="step3">
+                        <h2>Description <span class="optional-label">(optionnel)</span></h2>
+
+                        <label class="form-label" for="description">Informations supplémentaires</label>
+                        <textarea id="description" class="form-textarea" placeholder="Décrivez l'obstacle..."></textarea>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="nextStep3">Confirmer →</button>
+                            <button type="button" class="btn-form-skip" id="skipStep3">Ignorer</button>
+                            <button type="button" class="btn-form-prev" id="backStep3">← Étape précédente</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 4: REVIEW -->
+                    <section class="form-step-section" id="step4">
+                        <h2>Vérifiez votre signalement</h2>
+                        <dl class="summary-list" id="summaryList"></dl>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn-form-next" id="submitBtn">Confirmer →</button>
+                            <button type="button" class="btn-form-prev" id="backStep4">← Étape précédente</button>
+                        </div>
+                    </section>
+
+                </form>
+
+                <!-- SUCCESS SCREEN -->
+                <div class="form-success" id="successScreen">
+                    <div class="success-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E65639" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h2>Votre formulaire a été reçu,<br>Merci !</h2>
+                    <p>Votre client de messagerie s'est ouvert avec les données de votre signalement. Vérifiez et envoyez le mail.</p>
+                    <button class="btn-form-next" id="backFromSuccess">← Retour à la campagne</button>
                 </div>
-                <div class="sticker-item">
-                    <img src="../Assets/Images/fr sticker 2.png" alt="Autocollant 2">
-                </div>
+
             </div>
-            <div class="stickers-banner">
-                <img src="../Assets/Images/FooterBannerMobile.svg" alt="Footer Banner">
-            </div>
-        </section>
+
+        </div>
     </main>
+
+    <!-- FOOTER BANNER AND SITE FOOTER -->
+    <section class="footer-banner-section">
+        <div class="footer-banner">
+            <img src="../Assets/Images/FooterBannerMobile.svg" alt="Footer Banner">
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="footer-logo">
             <img src="../Assets/Logo/LOGO-NB.png" alt="Walk logo">
         </div>
     </footer>
+
+    <script>
+        // ========================================
+        // STATE
+        // ========================================
+        let formState = {
+            photoDataURL: null,
+            photoName: null,
+            obstacleType: null
+        };
+
+        // ========================================
+        // DOM HELPERS
+        // ========================================
+        function el(id) {
+            return document.getElementById(id);
+        }
+
+        function show(element) {
+            if (typeof element === 'string') element = el(element);
+            element.style.display = 'block';
+        }
+
+        function hide(element) {
+            if (typeof element === 'string') element = el(element);
+            element.style.display = 'none';
+        }
+
+        // ========================================
+        // STEP NAVIGATION
+        // ========================================
+        function updateStepIndicator(step) {
+            for (let i = 1; i <= 3; i++) {
+                const dot = el(`dot${i}`);
+                dot.classList.toggle('active', i === step);
+                dot.classList.toggle('done', i < step);
+            }
+            for (let i = 1; i <= 2; i++) {
+                el(`line${i}`).classList.toggle('done', i < step);
+            }
+        }
+
+        function goToStep(step) {
+            document.querySelectorAll('.form-step-section').forEach(s => s.classList.remove('active'));
+            el(`step${step}`).classList.add('active');
+            updateStepIndicator(step);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ========================================
+        // PHOTO HANDLING
+        // ========================================
+        function setupPhotoInput(inputId, buttonId) {
+            el(inputId).addEventListener('change', function() {
+                const file = this.files[0];
+                if (!file) return;
+
+                formState.photoName = file.name;
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    formState.photoDataURL = e.target.result;
+                    const img = el('imgPreview');
+                    img.src = formState.photoDataURL;
+                    show(img);
+                    show('removeBtn');
+                    el('btnCamera').classList.add('selected');
+                    el('btnGallery').classList.add('selected');
+                    hide('errPhoto');
+                };
+
+                reader.readAsDataURL(file);
+                this.value = '';
+            });
+
+            el(buttonId).addEventListener('click', () => {
+                el(inputId).click();
+            });
+        }
+
+        el('removeBtn').addEventListener('click', function() {
+            formState.photoDataURL = null;
+            formState.photoName = null;
+            const img = el('imgPreview');
+            img.src = '';
+            hide(img);
+            hide('removeBtn');
+            el('btnCamera').classList.remove('selected');
+            el('btnGallery').classList.remove('selected');
+        });
+
+        // ========================================
+        // OBSTACLE TYPE SELECTION
+        // ========================================
+        document.querySelectorAll('#obstacleGrid .obstacle-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#obstacleGrid .obstacle-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                formState.obstacleType = this.dataset.label;
+                hide('errObstacle');
+            });
+        });
+
+        // ========================================
+        // VALIDATION
+        // ========================================
+        function validateStep1() {
+            let ok = true;
+            if (!formState.photoDataURL) {
+                show('errPhoto');
+                ok = false;
+            }
+            if (!formState.obstacleType) {
+                show('errObstacle');
+                ok = false;
+            }
+            if (!ok) return;
+            goToStep(2);
+        }
+
+        function validateStep2() {
+            const location = el('location').value.trim();
+            if (!location) {
+                show('errLocation');
+                return;
+            }
+            hide('errLocation');
+            goToStep(3);
+        }
+
+        // ========================================
+        // LOCATION
+        // ========================================
+        function getLocation() {
+            const status = el('gpsStatus');
+
+            if (!navigator.geolocation) {
+                status.textContent = 'La géolocalisation n\'est pas disponible dans ce navigateur.';
+                return;
+            }
+
+            status.textContent = 'Obtention de la localisation…';
+
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const lat = pos.coords.latitude.toFixed(5);
+                    const lng = pos.coords.longitude.toFixed(5);
+
+                    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)
+                        .then(r => r.json())
+                        .then(data => {
+                            el('location').value = data.display_name || `${lat}, ${lng}`;
+                            status.textContent = '✓ Localisation trouvée';
+                        })
+                        .catch(() => {
+                            el('location').value = `${lat}, ${lng}`;
+                            status.textContent = '✓ Coordonnées enregistrées';
+                        });
+                },
+                () => {
+                    status.textContent = 'Impossible d\'obtenir la localisation — vérifiez vos permissions.';
+                }
+            );
+        }
+
+        // ========================================
+        // SUMMARY AND SUBMISSION
+        // ========================================
+        function showSummary() {
+            const location = el('location').value.trim();
+            const description = el('description').value.trim();
+            const dl = el('summaryList');
+
+            let html = '';
+            if (formState.photoDataURL) {
+                html += `<div class="summary-row"><dt class="summary-label">Photo</dt><dd class="summary-value"><img class="summary-thumb" src="${formState.photoDataURL}" alt="Photo"></dd></div>`;
+            }
+            html += `<div class="summary-row"><dt class="summary-label">Obstacle</dt><dd class="summary-value">${formState.obstacleType || '—'}</dd></div>`;
+            html += `<div class="summary-row"><dt class="summary-label">Localisation</dt><dd class="summary-value">${location || '—'}</dd></div>`;
+            html += `<div class="summary-row"><dt class="summary-label">Description</dt><dd class="summary-value">${description || '<em style="color:#767676">Non renseigné</em>'}</dd></div>`;
+
+            dl.innerHTML = html;
+
+            ['dot1', 'dot2', 'dot3'].forEach(id => {
+                el(id).classList.remove('active');
+                el(id).classList.add('done');
+            });
+
+            ['line1', 'line2'].forEach(id => {
+                el(id).classList.add('done');
+            });
+
+            goToStep(4);
+        }
+
+        function skipDescription() {
+            el('description').value = '';
+            showSummary();
+        }
+
+        function submitForm() {
+            const location = el('location').value.trim();
+            const description = el('description').value.trim();
+
+            const subject = encodeURIComponent('Walk Brussels – Nouveau signalement obstacle');
+            const body = encodeURIComponent(
+                `Nouveau signalement via Walk Brussels\n\n` +
+                `🚧 Obstacle : ${formState.obstacleType || 'Non précisé'}\n\n` +
+                `📍 Localisation : ${location}\n\n` +
+                `📝 Description : ${description || 'Aucune description fournie'}\n\n` +
+                `📎 Photo : ${formState.photoName ? `${formState.photoName} (à joindre manuellement)` : 'Aucune photo'}\n\n` +
+                `---\nEnvoyé via le formulaire Walk Brussels`
+            );
+
+            window.location.href = `mailto:meldingen@walkbrussels.be?subject=${subject}&body=${body}`;
+
+            setTimeout(() => {
+                hide('walkForm');
+                hide('formSteps');
+                show('successScreen');
+            }, 600);
+        }
+
+        // ========================================
+        // EVENT LISTENERS
+        // ========================================
+        setupPhotoInput('fileCamera', 'btnCamera');
+        setupPhotoInput('fileGallery', 'btnGallery');
+
+        el('nextStep1').addEventListener('click', validateStep1);
+        el('backToHome').addEventListener('click', () => window.location.href = 'index-fr.html');
+
+        el('btnGetLocation').addEventListener('click', getLocation);
+        el('nextStep2').addEventListener('click', validateStep2);
+        el('backStep2').addEventListener('click', () => goToStep(1));
+
+        el('nextStep3').addEventListener('click', showSummary);
+        el('skipStep3').addEventListener('click', skipDescription);
+        el('backStep3').addEventListener('click', () => goToStep(2));
+
+        el('submitBtn').addEventListener('click', submitForm);
+        el('backStep4').addEventListener('click', () => goToStep(3));
+
+        el('backFromSuccess').addEventListener('click', () => window.location.href = 'index-fr.html');
+    </script>
+
 </body>
 </html>

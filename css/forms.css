@@ -153,6 +153,62 @@
     line-height: 1;
 }
  
+/* ── Obstakel type ── */
+.obstacle-section-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #767676;
+    margin: 1.4rem 0 0.6rem;
+}
+
+.obstacle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 0.25rem;
+}
+
+.obstacle-btn {
+    border: 2px dashed #D8D5D0;
+    border-radius: 10px;
+    background: #ECE9E9;
+    padding: 0.65rem 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.64rem;
+    line-height: 1.15;
+    color: #1A1A1A;
+    text-align: center;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.obstacle-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+.obstacle-btn:hover,
+.obstacle-btn.selected {
+    border-color: #E65639;
+    background: #fdeee9;
+    color: #E65639;
+}
+
 /* ── Locatie ── */
 .loc-gps-btn {
     width: 100%;
