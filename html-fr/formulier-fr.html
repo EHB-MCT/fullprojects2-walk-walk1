@@ -390,6 +390,18 @@
 
         el('backFromSuccess').addEventListener('click', () => window.location.href = 'index-fr.html');
     </script>
+    <script>
+			// Store (key-value based) for the Walk Brussels site
+			// Value can be anything: string, array, ...
+			localStorage.setItem("walkLastVisitedPage", "index-nl");
+
+			// Get by key
+			const lastVisited = localStorage.getItem("walkLastVisitedPage");
+			console.log("Walk site last visited page:", lastVisited);
+
+			// Reset
+			// localStorage.clear();
+		</script>
 
 </body>
 </html>
