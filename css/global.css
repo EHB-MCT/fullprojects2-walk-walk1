@@ -1,6 +1,3 @@
-/* global.css
-   Core import order and reset styles for the project.
-*/
 @import url('forms.css');
 @import url('layout.css');
 @import url('typo.css');

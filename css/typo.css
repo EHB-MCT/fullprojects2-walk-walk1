@@ -13,13 +13,13 @@ body {
 }
 
 .hero-title h1 {
-    font-weight: 900; /* black */
+    font-weight: 900;
     margin: 0;
     font-size: 1.7rem;
 }
 
 .hero-title h2 {
-    font-weight: 700; /* bold */
+    font-weight: 700;
     margin: 0;
     font-size: 1rem;
 }
